@@ -1,7 +1,6 @@
 # WhatATheme
 markdown: kramdown
 
-remote_theme : thedevslot/WhatATheme
 # URL of the Site
 url: 'https://qysim.github.io/'
 # Base URL of the Site (i.e., Name of the Repository in which the Site is hosted)
