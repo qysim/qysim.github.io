@@ -1,5 +1,5 @@
 // <![CDATA[
-  var colours=new Array("#a6f", "#60f", "#60f", "#a6f", "#ccc"); // colours for top, right, bottom and left borders and background of bubbles
+  var colours=new Array("#d2bae5", "#b6c5e8", "#b6c5e8", "#d2bae5", "#ccc"); // colours for top, right, bottom and left borders and background of bubbles
   var bubbles=66; // maximum number of bubbles on screen
   var over_or_under="over"; // set to "over" for bubbles to always be on top, or "under" to allow them to float behind other objects
   
