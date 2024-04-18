@@ -1,6 +1,6 @@
-// @qysim: twinkle 마우스 스토커 적용
+// @qysim: Tinkerbell 마우스 스토커 적용
 // <![CDATA[
-var colour="#d2bae5"; // in addition to "random" can be set to any valid colour eg "#f0f" or "red"
+var colour="random"; // in addition to "random" can be set to any valid colour eg "#f0f" or "red"
 var sparkles=50;
 
 /****************************
@@ -187,11 +187,43 @@ function createDiv(height, width) {
 }
 
 function newColour() {
-  var c=new Array();
-  c[0]=255;
-  c[1]=Math.floor(Math.random()*256);
-  c[2]=Math.floor(Math.random()*(256-c[1]/2));
-  c.sort(function(){return (0.5 - Math.random());});
-  return ("rgb("+c[0]+", "+c[1]+", "+c[2]+")");
+  // 기존 컬러 랜덤 생성 코드
+  // var c=new Array();
+  // c[0]=255;
+  // c[1]=Math.floor(Math.random()*256);
+  // c[2]=Math.floor(Math.random()*(256-c[1]/2));
+  // c.sort(function(){return (0.5 - Math.random());});
+  // return ("rgb("+c[0]+", "+c[1]+", "+c[2]+")");
+
+  // @qysim: 연보라, 연파랑 기준 랜덤 생성 코드
+  // 두 기준 색상의 RGB 값
+  var bases = [
+    [210, 186, 229], // 연보라색
+    [182, 197, 232]  // 연파란색
+  ];
+
+  // 색상 범위 조정값: 각 컬러 성분마다 최대 ±20 변동 허용
+  var variance = 20;
+
+  // 새로운 색상 배열을 초기화
+  var newColours = [];
+
+  // 각 기준 색상에 대해 변형된 색상을 생성
+  for (var i = 0; i < bases.length; i++) {
+    var r = bases[i][0] + Math.floor(Math.random() * (variance * 2 + 1)) - variance;
+    var g = bases[i][1] + Math.floor(Math.random() * (variance * 2 + 1)) - variance;
+    var b = bases[i][2] + Math.floor(Math.random() * (variance * 2 + 1)) - variance;
+
+    // RGB 값이 0과 255 사이를 벗어나지 않도록 조정
+    r = Math.max(0, Math.min(255, r));
+    g = Math.max(0, Math.min(255, g));
+    b = Math.max(0, Math.min(255, b));
+
+    // 변형된 색상을 배열에 추가
+    newColours.push("rgb(" + r + ", " + g + ", " + b + ")");
+  }
+
+  // 생성된 색상 중 하나를 무작위로 선택하여 반환
+  return newColours[Math.floor(Math.random() * newColours.length)];
 }
 // ]]>
