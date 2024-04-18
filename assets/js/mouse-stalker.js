@@ -197,22 +197,55 @@ function newColour() {
 
   // @qysim: 연보라, 연파랑 기준 랜덤 생성 코드
   // 두 기준 색상의 RGB 값
+  // var bases = [
+  //   [210, 186, 229], // 연보라색
+  //   [182, 197, 232]  // 연파란색
+  // ];
+
+  // // 색상 범위 조정값: 각 컬러 성분마다 최대 ±20 변동 허용
+  // var variance = 20;
+
+  // // 새로운 색상 배열을 초기화
+  // var newColours = [];
+
+  // // 각 기준 색상에 대해 변형된 색상을 생성
+  // for (var i = 0; i < bases.length; i++) {
+  //   var r = bases[i][0] + Math.floor(Math.random() * (variance * 2 + 1)) - variance;
+  //   var g = bases[i][1] + Math.floor(Math.random() * (variance * 2 + 1)) - variance;
+  //   var b = bases[i][2] + Math.floor(Math.random() * (variance * 2 + 1)) - variance;
+
+  //   // RGB 값이 0과 255 사이를 벗어나지 않도록 조정
+  //   r = Math.max(0, Math.min(255, r));
+  //   g = Math.max(0, Math.min(255, g));
+  //   b = Math.max(0, Math.min(255, b));
+
+  //   // 변형된 색상을 배열에 추가
+  //   newColours.push("rgb(" + r + ", " + g + ", " + b + ")");
+  // }
+
+  // // 생성된 색상 중 하나를 무작위로 선택하여 반환
+  // return newColours[Math.floor(Math.random() * newColours.length)];
+
+  // 두 기준 색상의 RGB 값
   var bases = [
     [210, 186, 229], // 연보라색
     [182, 197, 232]  // 연파란색
   ];
 
-  // 색상 범위 조정값: 각 컬러 성분마다 최대 ±20 변동 허용
-  var variance = 20;
+  // 색상 범위 조정값: 각 컬러 성분마다 최대 ±30 변동 허용
+  var variance = 30;
+
+  // 색상 밝기 조정값 (진한색, 연한색을 위해)
+  var lightDarkAdjust = Math.random() < 0.5 ? -30 : 30; // 50% 확률로 밝기를 어둡게 또는 밝게 조정
 
   // 새로운 색상 배열을 초기화
   var newColours = [];
 
   // 각 기준 색상에 대해 변형된 색상을 생성
   for (var i = 0; i < bases.length; i++) {
-    var r = bases[i][0] + Math.floor(Math.random() * (variance * 2 + 1)) - variance;
-    var g = bases[i][1] + Math.floor(Math.random() * (variance * 2 + 1)) - variance;
-    var b = bases[i][2] + Math.floor(Math.random() * (variance * 2 + 1)) - variance;
+    var r = bases[i][0] + Math.floor(Math.random() * (variance * 2 + 1)) - variance + lightDarkAdjust;
+    var g = bases[i][1] + Math.floor(Math.random() * (variance * 2 + 1)) - variance + lightDarkAdjust;
+    var b = bases[i][2] + Math.floor(Math.random() * (variance * 2 + 1)) - variance + lightDarkAdjust;
 
     // RGB 값이 0과 255 사이를 벗어나지 않도록 조정
     r = Math.max(0, Math.min(255, r));
