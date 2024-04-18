@@ -195,68 +195,26 @@ function newColour() {
   // c.sort(function(){return (0.5 - Math.random());});
   // return ("rgb("+c[0]+", "+c[1]+", "+c[2]+")");
 
-  // @qysim: 연보라, 연파랑 기준 랜덤 생성 코드
-  // 두 기준 색상의 RGB 값
-  // var bases = [
-  //   [210, 186, 229], // 연보라색
-  //   [182, 197, 232]  // 연파란색
-  // ];
-
-  // // 색상 범위 조정값: 각 컬러 성분마다 최대 ±20 변동 허용
-  // var variance = 20;
-
-  // // 새로운 색상 배열을 초기화
-  // var newColours = [];
-
-  // // 각 기준 색상에 대해 변형된 색상을 생성
-  // for (var i = 0; i < bases.length; i++) {
-  //   var r = bases[i][0] + Math.floor(Math.random() * (variance * 2 + 1)) - variance;
-  //   var g = bases[i][1] + Math.floor(Math.random() * (variance * 2 + 1)) - variance;
-  //   var b = bases[i][2] + Math.floor(Math.random() * (variance * 2 + 1)) - variance;
-
-  //   // RGB 값이 0과 255 사이를 벗어나지 않도록 조정
-  //   r = Math.max(0, Math.min(255, r));
-  //   g = Math.max(0, Math.min(255, g));
-  //   b = Math.max(0, Math.min(255, b));
-
-  //   // 변형된 색상을 배열에 추가
-  //   newColours.push("rgb(" + r + ", " + g + ", " + b + ")");
-  // }
-
-  // // 생성된 색상 중 하나를 무작위로 선택하여 반환
-  // return newColours[Math.floor(Math.random() * newColours.length)];
-
-  // 두 기준 색상의 RGB 값
-  var bases = [
-    [210, 186, 229], // 연보라색
-    [182, 197, 232]  // 연파란색
-  ];
-
-  // 색상 범위 조정값: 각 컬러 성분마다 최대 ±30 변동 허용
-  var variance = 30;
-
-  // 색상 밝기 조정값 (진한색, 연한색을 위해)
-  var lightDarkAdjust = Math.random() < 0.5 ? -30 : 30; // 50% 확률로 밝기를 어둡게 또는 밝게 조정
-
-  // 새로운 색상 배열을 초기화
-  var newColours = [];
-
-  // 각 기준 색상에 대해 변형된 색상을 생성
-  for (var i = 0; i < bases.length; i++) {
-    var r = bases[i][0] + Math.floor(Math.random() * (variance * 2 + 1)) - variance + lightDarkAdjust;
-    var g = bases[i][1] + Math.floor(Math.random() * (variance * 2 + 1)) - variance + lightDarkAdjust;
-    var b = bases[i][2] + Math.floor(Math.random() * (variance * 2 + 1)) - variance + lightDarkAdjust;
-
-    // RGB 값이 0과 255 사이를 벗어나지 않도록 조정
-    r = Math.max(0, Math.min(255, r));
-    g = Math.max(0, Math.min(255, g));
-    b = Math.max(0, Math.min(255, b));
-
-    // 변형된 색상을 배열에 추가
-    newColours.push("rgb(" + r + ", " + g + ", " + b + ")");
-  }
-
-  // 생성된 색상 중 하나를 무작위로 선택하여 반환
-  return newColours[Math.floor(Math.random() * newColours.length)];
+    // 지정된 색상 목록
+    var colours = [
+      "rgb(210, 186, 229)",  // 연보라색
+      "rgb(182, 197, 232)",  // 연파란색
+      "rgb(255, 182, 193)",  // 연분홍색
+      "rgb(135, 206, 250)",  // 하늘색
+      "rgb(147, 112, 219)",  // 중간 보라색
+      "rgb(175, 238, 238)",  // 파우더블루
+      "rgb(255, 160, 122)",  // 연한 주황색
+      "rgb(32, 178, 170)",   // 라이트시 그린
+      "rgb(106, 90, 205)",   // 슬레이트블루
+      "rgb(72, 209, 204)",   // 미디엄터콰이즈
+      "rgb(221, 160, 221)",  // 플럼
+      "rgb(60, 179, 113)",   // 미디엄씨 그린
+      "rgb(244, 164, 96)",   // 샌디브라운
+      "rgb(135, 206, 235)",  // 스카이블루
+      "rgb(216, 191, 216)"   // 시슬
+    ];
+  
+    // 색상 목록에서 랜덤하게 하나의 색상을 선택하여 반환
+    return colours[Math.floor(Math.random() * colours.length)];
 }
 // ]]>
