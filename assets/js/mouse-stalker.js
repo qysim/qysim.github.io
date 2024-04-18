@@ -1,6 +1,6 @@
 // @qysim: twinkle 마우스 스토커 적용
 // <![CDATA[
-var colour=new Array("#d2bae5", "#b6c5e8", "#ccc"); // in addition to "random" can be set to any valid colour eg "#f0f" or "red"
+var colour="#d2bae5"; // in addition to "random" can be set to any valid colour eg "#f0f" or "red"
 var sparkles=50;
 
 /****************************
