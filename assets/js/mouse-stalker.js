@@ -1,3 +1,4 @@
+// @qysim: underwater 마우스 스토커 적용
 // <![CDATA[
   var colours=new Array("#d2bae5", "#b6c5e8", "#b6c5e8", "#d2bae5", "#ccc"); // colours for top, right, bottom and left borders and background of bubbles
   var bubbles=66; // maximum number of bubbles on screen
